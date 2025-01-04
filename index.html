@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja"><head>
+
+<meta charset="UTF-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sam Boysel (lead author)">
+<meta name="author" content="Frank Nagle">
+<meta name="author" content="Hilary Carter">
+<meta name="author" content="Anna Hermansen">
+<meta name="author" content="Kevin Crosby">
+<meta name="author" content="Jeff Luszcz">
+<meta name="author" content="Stephanie Lincoln">
+<meta name="author" content="Daniel Yue">
+<meta name="author" content="Manuel Hoffmann">
+<meta name="author" content="Alexander Staub">
+<meta name="dcterms.date" content="2024-11-19">
+
+<title>2024 オープンソースソフトウェア資金提供レポート</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="2024 Open Source Software Funding Report">
+<meta property="og:description" content="This report summarizes insights from the inaugural 2024 Open Source Software Funding Survey, a collaboration between GitHub, the Linux Foundation, and researchers from Harvard University. The objective of the survey was to better understand how organizations fund, contribute to, and otherwise support open s ource software.">
+<meta name="twitter:title" content="2024 Open Source Software Funding Report">
+<meta name="twitter:description" content="This report summarizes insights from the inaugural 2024 Open Source Software Funding Survey, a collaboration between GitHub, the Linux Foundation, and researchers from Harvard University. The objective of the survey was to better understand how organizations fund, contribute to, and otherwise support open s ource software.">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="floating slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <div id="quarto-announcement" data-announcement-id="c9b4dc5947f3334216e79798ac1598f3" class="alert alert-primary hidden"><i class="bi bi-info-circle quarto-announcement-icon"></i><div class="quarto-announcement-content">
+<p>必ず<a href="https://github.com/sboysel/open-source-funding-toolkit">オープンソース資金提供ツールキット</a>には、オープンソースの資金調達ツールキットには、貴社のオープンソースの影響力をより深く理解するためのリソースが満載です。ぜひご覧ください！</p>
+</div><i class="bi bi-x-lg quarto-announcement-action"></i></div>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">コンテンツ</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">はじめに</a><ul class="collapse">
+  <li><a href="#about-the-survey" id="toc-about-the-survey" class="nav-link" data-scroll-target="#about-the-survey">アンケートについて</a></li>
+  <li><a href="#approach" id="toc-approach" class="nav-link" data-scroll-target="#approach">組織はどのようにオープンソースソフトウェアに貢献するのですか？</a></li>
+  </ul></li>
+  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">主な調査結果</a><ul class="collapse">
+  <li><a href="#key-finding-organizations-invest-billions" id="toc-key-finding-organizations-invest-billions" class="nav-link" data-scroll-target="#key-finding-organizations-invest-billions">組織はオープンソースに数十億ドルを投資しています</a><ul class="collapse">
+  <li><a href="#key-finding-organizations-invest-billions-extrapolation" id="toc-key-finding-organizations-invest-billions-extrapolation" class="nav-link" data-scroll-target="#key-finding-organizations-invest-billions-extrapolation"><em>すべて</em>の組織はどのくらいオープンソースに貢献していますか？</a></li>
+  <li><a href="#key-finding-organizations-invest-billions-org-level" id="toc-key-finding-organizations-invest-billions-org-level" class="nav-link" data-scroll-target="#key-finding-organizations-invest-billions-org-level">アンケート回答者はどの程度貢献していますか？</a></li>
+  <li><a href="#key-finding-organizations-invest-billions-sources-sinks" id="toc-key-finding-organizations-invest-billions-sources-sinks" class="nav-link" data-scroll-target="#key-finding-organizations-invest-billions-sources-sinks">ソースとシンク</a></li>
+  </ul></li>
+  <li><a href="#key-finding-contribution-blind-spots" id="toc-key-finding-contribution-blind-spots" class="nav-link" data-scroll-target="#key-finding-contribution-blind-spots">組織は<em>資金提供の詳細</em>に関して貢献の盲点を持っています</a></li>
+  <li><a href="#key-finding-challenges-of-decentralization" id="toc-key-finding-challenges-of-decentralization" class="nav-link" data-scroll-target="#key-finding-challenges-of-decentralization">活動が分散化されている場合、貢献度を測定することはより困難になります</a></li>
+  </ul></li>
+  <li><a href="#recommendations" id="toc-recommendations" class="nav-link" data-scroll-target="#recommendations">推奨事項</a></li>
+  <li><a href="#detailed-findings" id="toc-detailed-findings" class="nav-link" data-scroll-target="#detailed-findings">詳細な調査結果</a><ul class="collapse">
+  <li><a href="#survey-characteristics" id="toc-survey-characteristics" class="nav-link" data-scroll-target="#survey-characteristics">調査特性</a></li>
+  <li><a href="#respondent-characteristics" id="toc-respondent-characteristics" class="nav-link" data-scroll-target="#respondent-characteristics">回答者特性</a></li>
+  <li><a href="#code-contribution" id="toc-code-contribution" class="nav-link" data-scroll-target="#code-contribution">コード貢献</a></li>
+  <li><a href="#non-code-contribution" id="toc-non-code-contribution" class="nav-link" data-scroll-target="#non-code-contribution">コード以外の貢献</a></li>
+  <li><a href="#motivations-and-incentives" id="toc-motivations-and-incentives" class="nav-link" data-scroll-target="#motivations-and-incentives">モチベーションとインセンティブ</a></li>
+  <li><a href="#investment-prioritization-and-decision-making" id="toc-investment-prioritization-and-decision-making" class="nav-link" data-scroll-target="#investment-prioritization-and-decision-making">投資の優先順位付けと意思決定</a></li>
+  <li><a href="#general-remarks-from-survey-respondents" id="toc-general-remarks-from-survey-respondents" class="nav-link" data-scroll-target="#general-remarks-from-survey-respondents">アンケート回答者からの全般的な意見</a></li>
+  </ul></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">付録</a><ul class="collapse">
+  <li><a href="#appendix-measuring-labor" id="toc-appendix-measuring-labor" class="nav-link" data-scroll-target="#appendix-measuring-labor">貢献労働の価値の測定</a></li>
+  <li><a href="#appendix-extrapolation" id="toc-appendix-extrapolation" class="nav-link" data-scroll-target="#appendix-extrapolation">OSS組織の母集団への外挿</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">2024 Open Source Software Funding Report</h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Authors</div>
+  <div class="quarto-title-meta-heading">Affiliations</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Sam Boysel (lead author) <a href="mailto:sboysel@hbs.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">Harvard University</p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Frank Nagle</p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">Harvard University</p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Hilary Carter</p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">The Linux Foundation</p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Anna Hermansen</p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">The Linux Foundation</p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Kevin Crosby</p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">GitHub</p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Jeff Luszcz</p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">GitHub</p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Stephanie Lincoln</p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">GitHub</p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Daniel Yue</p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">Georgia Tech</p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Manuel Hoffmann</p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">Harvard University</p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Alexander Staub</p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">University of Lausanne</p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">公開済み</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2024年11月19日</p>
+    </div>
+  </div>
+  
+    <div>
+    <div class="quarto-title-meta-heading">変更済み</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">2024年11月19日</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level1 page-columns page-full">
+<h1>はじめに</h1>
+<p>本レポートは、「<strong>2024 オープンソースソフトウェア資金調達調査</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>として<a href="https://github.com/">GitHub</a>、<a href="https://www.linuxfoundation.org/">Linux Foundation</a>、および<a href="https://lish.harvard.edu/">ハーバード大学</a>の研究者たちとの共同研究のもとで行った初回調査結果をまとめたものです。<span style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #fff2a8;">この調査の目的は、<em>企業<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>がオープンソースソフトウェアに資金提供、貢献、その他の支援を行う方法について、より深く理解することでした。</em></span></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup> 調査文書のコピーは、<a href="oss_funding_survey_copy.pdf">こちら</a>でご覧いただけます。</p></div><div id="fn2"><p><sup>2</sup> 本調査では、オープンソースソフトウェアに貢献するリソースを投入する民間企業、NGO、公共機関などの団体を「<strong><em>組織</em></strong>」と定義しています。これらの組織がオープンソースに毎年投入するリソースの規模をより深く理解することを目的として、本調査では「組織」に焦点を当てています。</p></div></div><div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">主な調査結果</div>
+</div>
+<div class="callout-body-container callout-body">
+<dl>
+<dt>規模</dt>
+<dd><ul>
+<li>組織は組織はオープンソースソフトウェアに年間<strong><a href="#key-finding-organizations-invest-billions">77億米ドル</a></strong>を貢献しています。<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></li>
+<li>貢献価値の大部分 (<strong>86%</strong>) は <strong>従業員の労働</strong>によるものです。</li>
+</ul>
+</dd>
+<dt>課題</dt>
+<dd><ul>
+<li>組織は、<em>なぜ</em>、<em>どのように</em>貢献するのかをよく理解していますが、<strong><a href="#key-finding-contribution-blind-spots">資金提供の具体的方法については<em>不明な点</em>があります。</a></strong></li>
+<li><strong><a href="#key-finding-challenges-of-decentralization">運用が分散化されている場合、</a></strong>OSSの資金調達を測定することはさらに困難になります。</li>
+</ul>
+</dd>
+<dt>経験から学んだこと</dt>
+<dd><ul>
+<li><strong>組織の OSS への取り組みに「フィンガープリント（痕跡）」を残し</strong>、マネージャー、研究者、その他の観察者がより簡単にこの情報を収集できるようにします。</li>
+<li><strong>組織の名称でなされた貢献について、従業員が自己申告できるようにします。</strong></li>
+<li>組織内で簡潔な定期的な調査を実施し、主要な評価指標を収集することで、<strong>OSS への貢献をモニタリング パイプラインの一部とします</strong>。</li>
+<li><strong>公開されている OSS への資金提供指標とデータを共有することを検討します</strong>。</li>
+</ul>
+</dd>
+<dt>ツールキット</dt>
+<dd><ul>
+<li>これらの調査結果を活用し、オープンソースへの取り組みの監視と洞察の改善を目指す組織向けの各種リソースを開発しています：<a href="https://github.com/sboysel/open-source-funding-toolkit">https://github.com/sboysel/open-source-funding-toolkit</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup> 私たち<a href="#key-finding-organizations-invest-billions-extrapolation">は、調査回答を外挿して</a>、組織主導のオープンソースへの投資総額の妥当な推定値を算出しました。開発者の賃金や貢献する組織の総人口などの基本的な仮定に多少のばらつきを許容する私たちの<a href="#appendix-extrapolation">方法論</a>では、年間投資額は<a href="#fig-extrapolation-scenarios">29億ドルから101億ドル</a>と推定されます。詳細は<a href="#appendix-extrapolation">OSS組織の母集団への外挿</a>を参照してください。</p></div></div><section id="about-the-survey" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="about-the-survey">この調査について</h2>
+<ul>
+<li>今回の調査の主な対象者は、OSPO<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>、エンジニアリングおよび製品部門の責任者、Cレベルの経営幹部、および自社のオープンソースへの取り組みについて深い理解を持つその他の個人です。</li>
+<li>この調査は、Linux Foundationの<a href="https://www.linuxfoundation.org/blog/linux-foundation-newsletter-july-2024#research">リサーチニュースレター</a>およびメーリングリスト、GitHubニュースレター、ソーシャルメディアの投稿<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>、<a href="https://todogroup.org/">TODOグループ</a>、オープンソースリーダーへの働きかけを通じて配布されました。</li>
+<li>調査結果は、<em>行動を促すものであり</em>、オープンソースの資金調達と認知度を向上させるための<a href="#recommendations">いくつかの提言</a>を導くものでもあります。提言には、<span style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #fff2a8;">継続的な改善と貢献度の測定、組織文化の強化、影響度測定のための公共データソースへの貢献</span>などが含まれます。</li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup> オープンソースプログラムオフィス。詳細は、<a href="https://github.com/todogroup/ospodefinition.org">todogroup/ospodefinition.org</a>と<a href="https://www.linuxfoundation.org/resources/open-source-guides/creating-an-open-source-program">および「Creating an Open Source Program」</a>をご覧ください。</p></div><div id="fn5"><p><sup>5</sup>より幅広い層の方々にご参加いただくために、X/Twitter、LinkedIn、Mastodonへの投稿を通じてアンケートへのリンクを告知し、配布しました。これらの幅広いソーシャルチャンネルからの回答は全体の<strong>7%</strong>未満でした。</p></div><div id="fn6"><p><sup>6</sup> アンケートの実施の詳細と回答率については「<a href="#survey-characteristics">Survey Characteristics（アンケートの特徴）</a>」で、回答者の人口統計学的記述統計については「<a href="#respondent-characteristics">Respondent Characteristics（回答者の特徴）</a>」で説明しています。</p></div></div><p>まず、調査の<a href="#key-findings">主な結果</a>から始めてます。私たちは、これらの結果を基に、オープンソースの資金調達に関する洞察を深めるための<a href="#recommendations">政策提言</a>を提示します。最後に、各調査モジュールからの洞察について、より詳細な議論が<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>が「<a href="#detailed-findings">詳細な結果</a>」に記載されています。</p>
+</section>
+<section id="approach" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="approach">組織はオープンソースソフトウェアにどのように貢献しているのでしょうか？</h2>
+<div class="cell page-columns page-full" data-layout-align="default">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-funding-diagram" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-funding-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-funding-diagram">flowchart LR
+  A[&quot;🏢 Organizations&quot;] --> B{Funding}
+  B --> C(&quot;💵 Financial&quot;)
+  B --> D(&quot;🛠  Labor&quot;)
+  D --> E((&quot;💻 Open Source&quot;))
+  C --> E
+  E --> F[&quot;🏛  Foundations&quot;]
+  E --> G[&quot;👥 Communities&quot;]
+  E --> H[&quot;📋 Projects&quot;]
+  E --> I[&quot;👷 Maintainers&quot;]
+</pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-funding-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">図1：組織によるオープンソースへの資金提供</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>この調査の主要な目的は、組織によるオープンソースへの「付加価値」を推定することです。</p>
+<ul>
+<li><strong><em>典型的な組織はどの程度オープンソースに貢献していますか？</em></strong></li>
+<li><strong><em>サポートは様々なチャネルでどのように分散されていますか？</em></strong></li>
+<li><strong><em>私たちの調査から得られた推定値を、より広範な組織母集団に適用することは可能でしょうか？</em></strong></li>
+</ul>
+<p>私たちは、貢献価値を推定するためにアンケート回答を利用していますが、その際には労働力の貢献（labor contribution）<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>と直接的な資金（direct financial contribution）<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>に貢献を区別するよう注意しています。そうすることで、(a)オープンソースに貢献する典型的な組織の特徴を明らかにし、(b)これらの調査結果を推定することで、<em>すべての貢献組織がオープンソースに提供する価値の総計</em>を算出することができます。<span style="border-radius: 0.2rem; padding: 0 0.2rem 0 0.2rem;background-color: #fff2a8;">これは、オープンソースエコシステムが組織による貢献や資金調達メカニズムを理解するためのベースラインを提供し、他の組織が自らの貢献をベンチマークする方法を提供するという点で重要です。</span></p>
+<div class="no-row-height column-margin column-container"><div id="fn7"><p><sup>7</sup> <em>労働の貢献</em>は、組織の従業員が有給の時間中にオープンソースプロジェクトに貢献する度合いを考慮します。</p></div><div id="fn8"><p><sup>8</sup> <em>直接的な金銭的貢献</em>（例：「コード以外のもの」）には、寄付、イベントのスポンサーシップ、割引サービス、トレーニング、研究など、OSSに対する資金源やその他の形態の支援が含まれます。</p></div></div><div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">アンケート回答から貢献価値の推定まで</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>生の調査回答からドル単位の推定値を導き出すには、企業がオープンソース作業に1年間に費やす労働時間の総数に関する情報が必要です。 調査回答から労働価値の推定値を導き出すための、当社が推奨する推定および集計方法については、<a href="#appendix-measuring-labor">付録</a>で説明しています。</p>
+</div>
+</div>
+<p><a href="https://opensourcefundingsurvey2024.com">ページトップへ</a></p>
+</section>
+</section>
+<section id="key-findings" class="level1 page-columns page-full">
+<h1>主な調査結果</h1>
+<section id="key-finding-organizations-invest-billions" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="key-finding-organizations-invest-billions">組織はオープンソースに数十億ドルを投資しています</h2>
+<div class="callout callout-style-default callout-tip callout-titled" title="組織はオープンソースに数十億ドルを貢献しています。">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">組織はオープンソースに数十億ドルを貢献しています</div>
+</div>
+<div class="callout-body-container callout-body">
+<dl>
+<dt>アンケート回答者</dt>
+<dd>159人の回答者<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>が、オープンソースに年間総額<strong>17億ドル</strong>（2023米ドル）を貢献しています。<strong>86%</strong>は従業員による<strong>貢献労働（labor contribution）</strong>という形です。</dd>
+<dt>オープンソースで活動している<em>すべて</em>の組織に調査を適用して推定します。</dt>
+<dd>貢献に関する調査回答を使用して、私たちは、組織がOSSに年間<strong>77億ドル</strong>を貢献していると推定しています。<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a></dd>
+</dl>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="fn10"><p><sup>10</sup> <em>すべて</em>の組織に対する貢献価値の推定値を拡大するには、いくつかの仮定が必要です。 主な仮定は、より広範な集団における組織の貢献の分布は、組織の従業員によるパブリックな GitHub リポジトリへのコミットの分布に従うというものです。 これらは<a href="#appendix-extrapolation">付録</a>で詳しく説明し、仮定を変化させることで、オープンソースに対する組織のサポートの総価値について、さまざまな妥当な推定値が導かれる可能性があることを示します。</p></div></div><div class="no-row-height column-margin column-container"><div id="fn9"><p><sup>9</sup> 調査対象の159の組織が、労働または金銭による貢献情報を提供しており、その合計額はゼロより大きいものでした。</p></div></div><section id="key-finding-organizations-invest-billions-extrapolation" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="key-finding-organizations-invest-billions-extrapolation"><em>すべての</em> の組織がオープンソースにどれだけ貢献しているのでしょうか？</h3>
+<p>さまざまな仮説シナリオの下で、<a href="#fig-extrapolation-scenarios" class="quarto-xref">図2</a>では、調査サンプルで得られたOSS貢献価値の<em>推定値</em>をプロットし、より広範なOSS組織が毎年オープンソースに貢献している総価値を推定しています。</p>
+<div id="cell-fig-extrapolation-scenarios" class="cell page-columns page-full" data-execution_count="3">
+<div class="cell-output cell-output-display page-columns page-full">
+<div id="fig-extrapolation-scenarios" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-extrapolation-scenarios-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><a href="index_files/figure-html/fig-extrapolation-scenarios-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="図2：さまざまなシナリオにおける、組織によるOSSへの年間総（グローバル）貢献価値の推定値。 (1)世界中でOSSに貢献している組織の数、および (2)貢献している従業員に支払われている賃金について、仮定を立てています。 貢献している組織の規模を推定するために、GitHubの公開コミットと組織を照合し、コミッターの組織発行のメールアドレスを使用しました。例えば、私たちのデータによると、1年間に100回のコミットを行った組織は6,691件でした。私たちは、1年あたり5回のコミット（21,399組織）を閾値として採用し、Hoffmann、Nagle、Zhou（2024年）と整合性を保つため、推定賃金を45ドル（2023米ドル）としました。"><img src="index_files/figure-html/fig-extrapolation-scenarios-output-1.png" width="811" height="311" class="figure-img"></a></div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-extrapolation-scenarios-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">図2：さまざまなシナリオにおける、組織によるOSSへの年間総（グローバル）貢献価値の推定値。 (1)世界中でOSSに貢献している組織の数、および (2)貢献している従業員に支払われている賃金について、仮定を立てています。 貢献している組織の規模を推定するために、GitHubの公開コミットと組織を照合し、コミッターの組織発行のメールアドレスを使用しました。例えば、私たちのデータによると、1年間に100回のコミットを行った組織は6,691件でした。<strong>私たちは、1年あたり5回のコミット（21,399組織）を閾値として採用し、<span class="citation" data-cites="hoffmann2024value">Hoffmann、Nagle、Zhou（<a href="#ref-hoffmann2024value" role="doc-biblioref">2024</a>）</span>と整合性を保つため、推定賃金を45ドル（2023米ドル）としました。</strong>。</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>私たちが優先する想定条件の下では、世界中の組織が毎年<strong>77億ドル</strong>（2023年の米ドル）以上をOSSに貢献しています。</p>
+<p><strong>では、これらの組織によるOSSへの投資の見積もりをどのように理解すればよいのでしょうか。</strong>これまでに多くの研究が、(1)オープンソースの総価値、または(2)この価値を生み出すために必要な投資規模のどちらかに価値を見出そうとしてきました。 これらの研究結果は、私たちが導き出したオープンソースに対する組織の貢献価値の見積もりを位置づけるのに役立ちます（<a href="#fig-extrapolation-comparisons" class="quarto-xref">図3</a>参照）。</p>
+<div id="cell-fig-extrapolation-comparisons" class="cell page-columns page-full" data-execution_count="4">
+<div class="cell-output cell-output-display page-columns page-full">
+<div id="fig-extrapolation-comparisons" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-extrapolation-comparisons-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><a href="index_files/figure-html/fig-extrapolation-comparisons-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="図3：この調査から導き出された組織主導のオープンソース投資の価値を、類似の研究と比較したもの。"><img src="index_files/figure-html/fig-extrapolation-comparisons-output-1.png" width="790" height="290" class="figure-img"></a></div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-extrapolation-comparisons-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">図3：この調査から導き出された組織主導のオープンソース投資の価値を、類似の研究と比較したもの。</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><span class="citation" data-cites="blind2021impact">Blind他(<a href="#ref-blind2021impact" role="doc-biblioref">2021</a>)</span>は、<strong>EU内の企業が2018年にオープンソースに10億ユーロを投資した</strong>ことを明らかにしています。<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a></li>
+<li><span class="citation" data-cites="hoffmann2024value">Hoffmann、Nagle、Zhou（<a href="#ref-hoffmann2024value" role="doc-biblioref">2024</a>）</span>は、コアな OSS インフラをゼロから再開発するための一時的な<strong>コストは 41.5 億ドル（2023 年の米ドル）が必要</strong>になると推定しています。</li>
+<li><span class="citation" data-cites="korkmaz2024github">Korkmazら (<a href="#ref-korkmaz2024github" role="doc-biblioref">2024</a>)</span>は、<strong>2019年の米国におけるオープンソースへの総投資額は378億ドルに達すると推定しています。</strong><a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a></li>
+<li>コミッターのメールアドレスから組織と関連付けられたGitHubのコミットデータによると、利用可能なデータの最後の年において、<strong>組織は公開リポジトリに約800万件のコミットを行いました</strong>。年間の総貢献額77億ドルを時給45ドルで換算すると、<strong>従業員はオープンソースの作業に対して支払われる21.4時間ごとに1件のコミットを行っている</strong>ことを意味します。</li>
+<li>この調査で得られた総価値（17億ドル）を、世界中の貢献組織の推定数（21,000）に単純に当てはめると、毎年<strong>2250億ドル</strong>以上が投資されていることになり、これは米国のソフトウェア開発者の総賃金とほぼ同等の価値であることを意味します。<span class="citation" data-cites="bls_software_developers2023">（<a href="#ref-bls_software_developers2023" role="doc-biblioref">労働統計局2024</a>）</span></li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="ref-blind2021impact" class="csl-entry" role="listitem">Blind, Knut, Mirko Böhm, Paula Grzegorzewska, Andrew Katz, Sachiko Muto, Sivan Pätsch, and Torben Schubert. 2021. <span>“The Impact of Open Source Software and Hardware on Technological Independence, Competitiveness and Innovation in the EU Economy.”</span> <em>Final Study Report. European Commission, Brussels, Doi</em> 10: 430161.</div><div id="fn11"><p><sup>11</sup> さらに著者は、この投資により、労働総生産（GDP）がさらに650億ユーロから950億ユーロ増加すると結論づけています。</p></div><div id="ref-korkmaz2024github" class="csl-entry" role="listitem">Korkmaz, Gizem, J Bayoán Santiago Calderón, Brandon L Kramer, Ledia Guci, and Carol A Robbins. 2024. <span>“From GitHub to GDP: A Framework for Measuring Open Source Software Innovation.”</span> <em>Research Policy</em> 53 (3): 104954.</div><div id="fn12"><p><sup>12</sup> 今回の調査とは著しく異なる点として、著者は米国関連の開発者による760万の公開リポジトリ全体への投資をしていると考えています。</p></div><div id="fn13"><p><sup>13</sup> 通常、従業員によるオープンソースプロジェクトへのコミット回数を数えることで行われます。</p></div></div><p>これまでの研究では、公開されているコントリビューション情報<a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a>を基にしていますが、本レポートの調査結果は、各組織が自ら報告したオープンソースへの貢献推定値から導き出されています。</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">メソドロジー（方法論）</div>
+</div>
+<div class="callout-body-container callout-body">
+<dl>
+<dt>調査から得られた貢献価値をすべての組織に拡大するにはどうすればよいでしょうか？</dt>
+<dd>私たちの調査は、オープンソースを支援する可能性が最も高い組織を対象としていました。単純に、アンケートで示された総額を、OSSに参加する組織の総数と一致するように拡大すると、貢献の総価値を<em>過大評価</em>する可能性が高いと思われます。この偏りを修正するために、私たちの調査が大規模な貢献者に偏っている可能性があるという事実を考慮して、<strong>キャリブレーションされたブートストラップ</strong>手順を使用しています。私たちの推定方法については、<a href="#appendix-extrapolation">付録</a>で詳しく説明しています。</dd>
+</dl>
+</div>
+</div>
+<p><a href="https://opensourcefundingsurvey2024.com">ページトップへ</a></p>
+</section>
+<section id="key-finding-organizations-invest-billions-org-level" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="key-finding-organizations-invest-billions-org-level">調査回答者はどの程度貢献しているのでしょうか？</h3>
+<p><a href="#fig-financial-labor-distribution" class="quarto-xref">図4</a>では、該当する質問に回答した各調査回答者の労働および金銭的貢献価値の算出値をプロットしています。</p>
+<div id="cell-fig-financial-labor-distribution" class="cell page-columns page-full" data-execution_count="5">
+<div class="cell-output cell-output-display page-columns page-full">
+<div id="fig-financial-labor-distribution" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-financial-labor-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><a href="index_files/figure-html/fig-financial-labor-distribution-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="図4：アンケート回答者の金銭的および労働的貢献価値の実証サンプル"><img src="index_files/figure-html/fig-financial-labor-distribution-output-1.png" width="789" height="290" class="figure-img"></a></div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-financial-labor-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">図4：アンケート回答者の金銭的および労働的貢献価値の実証サンプル</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>112人の回答者が、彼らの組織のオープンソースへの労働による貢献のレベルに関する情報を提供しました。133人の回答者が、彼らの組織の金銭的貢献のレベルに関する情報を提供しました。<a href="#fn14" class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a> これらの分布に関する統計の概要は<a href="#tbl-respondents-value" class="quarto-xref">表1</a>に示されています。</p>
+<div class="no-row-height column-margin column-container"><div id="fn14"><p><sup>14</sup> <strong>192</strong>人の回答者が、労働または金銭による貢献について<em>何らか</em>の情報を提供しました。しかし、これらの回答者の一部は、<a href="#appendix-measuring-labor">私たちの実証的手法</a>を用いて適切な貢献額を算出できるだけの十分な情報を提供していませんでした。<strong>159</strong>人の回答者は、金銭または労働による貢献価値を算出するのに十分な情報を提供しました。</p></div></div><div id="tbl-respondents-value" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-tbl figure page-columns page-full">
+<div aria-describedby="tbl-respondents-value-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 12%">
+<col style="width: 15%">
+<col style="width: 18%">
+<col style="width: 8%">
+<col style="width: 13%">
+<col style="width: 8%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ソース</th>
+<th style="text-align: right;">カウント</th>
+<th style="text-align: right;">平均</th>
+<th style="text-align: right;">標準偏差</th>
+<th style="text-align: right;">最小値</th>
+<th style="text-align: right;">中央値</th>
+<th style="text-align: right;">最大値</th>
+<th style="text-align: right;">合計</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>労働（labor）による貢献</strong></td>
+<td style="text-align: right;">112</td>
+<td style="text-align: right;">$12,936,973</td>
+<td style="text-align: right;">$63,175,021</td>
+<td style="text-align: right;">$2,592</td>
+<td style="text-align: right;">$345,600</td>
+<td style="text-align: right;">$622,080,000</td>
+<td style="text-align: right;">$1,448,940,960</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>金銭的（financial）貢献</strong></td>
+<td style="text-align: right;">133</td>
+<td style="text-align: right;">$1,796,592</td>
+<td style="text-align: right;">$7,333,217</td>
+<td style="text-align: right;">$600</td>
+<td style="text-align: right;">$175,000</td>
+<td style="text-align: right;">$77,850,000</td>
+<td style="text-align: right;">$238,946,678</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-respondents-value-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">表1：調査回答者による報告された貢献価値の統計概要</figcaption>
+</figure>
+</div>
+<p>回答した組織の中央値では、年間<strong>52万600ドル</strong>（2023米ドル）の価値をOSSに貢献しています。</p>
+<ul>
+<li>この価値のうち<strong>345,600ドル</strong>は人件費であり、これは<strong>4 FTE</strong>に相当します。<a href="#fn15" class="footnote-ref" id="fnref15" role="doc-noteref"><sup>15</sup></a></li>
+<li><strong>175,000ドル</strong>は直接的な金銭による貢献です</li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn15"><p><sup>15</sup> Full time employee、すなわちフルタイム従業員に関係する年間コスト。<a href="#appendix-measuring-labor">私たちの労働価値測定方法</a>では、1FTEは1人のフルタイムソフトウェア開発者に支払われる年間給与に相当します。</p></div></div><p>回答者全体では、毎年<strong>17億ドル</strong>（2023米ドル）をオープンソースに貢献しています。</p>
+<p><a href="https://opensourcefundingsurvey2024.com">ページトップへ</a></p>
+</section>
+<section id="key-finding-organizations-invest-billions-sources-sinks" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="key-finding-organizations-invest-billions-sources-sinks">ソースとシンク（sources and sinks）</h3>
+<p><strong>オープンソースの資金調達にはどのような手段がありますか？ 組織はこれらのリソースをどこに流しているのか？</strong>この調査では、組織からオープンソースへのリソースの流れをもう少し詳しく分析することができます。<a href="#fig-labor-financial-split" class="quarto-xref">図5</a>では、回答者の貢献を労働力と金銭に分けてプロットしています。<a href="#fig-labor-financial-split" class="quarto-xref">図5</a>は、組織によるOSSへの貢献価値の圧倒的な割合が労働力によるものであることを示しています。</p>
+<div id="cell-fig-labor-financial-split" class="cell page-columns page-full" data-execution_count="6">
+<div class="cell-output cell-output-display page-columns page-full">
+<div id="fig-labor-financial-split" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-labor-financial-split-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><a href="index_files/figure-html/fig-labor-financial-split-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="図5：調査回答者による報告された労働力および直接的な資金貢献の配分"><img src="index_files/figure-html/fig-labor-financial-split-output-1.png" width="790" height="122" class="figure-img"></a></div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-labor-financial-split-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">図5：調査回答者による報告された労働力および直接的な資金貢献の配分</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-labor-split" class="quarto-xref">図6</a>と<a href="#fig-financial-split" class="quarto-xref">図7</a>では、労働と財政資金の調達をさらに細分化しています。</p>
+<div id="cell-fig-labor-split" class="cell page-columns page-full" data-execution_count="7">
+<div class="cell-output cell-output-display page-columns page-full">
+<div id="fig-labor-split" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-labor-split-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><a href="index_files/figure-html/fig-labor-split-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="図6：調査回答者による報告された労働貢献の配分"><img src="index_files/figure-html/fig-labor-split-output-1.png" width="789" height="121" class="figure-img"></a></div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-labor-split-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">図6：調査回答者による報告された労働貢献の配分</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-fig-financial-split" class="cell page-columns page-full" data-execution_count="8">
+<div class="cell-output cell-output-display page-columns page-full">
+<div id="fig-financial-split" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-financial-split-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><a href="index_files/figure-html/fig-financial-split-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="図7：調査回答者による報告された直接的な金銭的貢献の配分"><img src="index_files/figure-html/fig-financial-split-output-1.png" width="790" height="141" class="figure-img"></a></div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-financial-split-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">図7：調査回答者による報告された直接的な金銭的貢献の配分</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>注：一部の組織では、請負業者への労働力と請負業者に支払われた金額の両方を報告している場合があります。二重計上の問題を避けるため、貢献価値の総額を推定する際には、請負業者の労働力を除外することにしています。</p>
+<p>興味深いことに、かなりの割合の資金提供が請負業者に向けられていることから、オープンソースへの貢献作業は「社内」または専門家に委託されていることを示唆しています。金銭的貢献を特徴づける調査回答は、主要なオープンソース非営利団体の予算配分とも一致しています。<a href="#fig-financial-split" class="quarto-xref">図7</a>に示された資金源の配分は、2023年のLinux Foundationの支出割合<span class="citation" data-cites="lf_annual_report_2023">（<a href="#ref-lf_annual_report_2023" role="doc-biblioref">The Linux Foundation 2023</a>）</span>と一致しています。<a href="#fn16" class="footnote-ref" id="fnref16" role="doc-noteref"><sup>16</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="ref-lf_annual_report_2023" class="csl-entry" role="listitem">The Linux Foundation. 2023. 「<span>2023 Linux Foundation Annual Report: Rising Tides of Open Source.（2023 Linux Foundation 年次報告書：オープンソースの潮流）</span>」 <a href="https://www.linuxfoundation.org/resources/publications/linux-foundation-annual-report-2023">https://www.linuxfoundation.org/resources/publications/linux-foundation-annual-report-2023</a>.</div><div id="fn16"><p><sup>16</sup> 「 <a href="https://www.linuxfoundation.org/resources/publications/linux-foundation-annual-report-2023">2023 Linux Foundation 年次報告書：オープンソースの高2023 Linux Foundation Annual Report: Rising Tides of Open Source.（2023 Linux Foundation 年次報告書：オープンソースの潮流）</a>」の158ページをご覧ください。</p></div></div><p><a href="https://opensourcefundingsurvey2024.com">ページトップへ</a></p>
+</section>
+</section>
+<section id="key-finding-contribution-blind-spots" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="key-finding-contribution-blind-spots"><em>資資金調達の具体的な内容</em>について、組織には貢献の盲点があります。</h2>
+<div class="callout callout-style-default callout-tip callout-titled" title="">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill"><em>資金調達の詳細に関する盲点</em></div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong><em>組織は、なぜオープンソースソフトウェアに貢献しているのかについて明確な意識を持っていますが、この投資の価値を詳細に説明することはできないようです。</em></strong>。これは、資金提供の詳細に関する質問に対する回答率の低下から明らかです。</p>
+</div>
+</div>
+<div id="cell-fig-missingness" class="cell page-columns page-full" data-execution_count="9">
+<div class="cell-output cell-output-display page-columns page-full">
+<div id="fig-missingness" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-missingness-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><a href="index_files/figure-html/fig-missingness-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="図8：「オープンソースにどのような貢献をしていますか？」という質問に何らかの回答をした回答者のうち、詳細な金銭的・労働的貢献に関する質問に回答した回答者の割合はどのくらいだったでしょうか？"><img src="index_files/figure-html/fig-missingness-output-1.png" width="786" height="390" class="figure-img"></a></div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-missingness-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">図8：「オープンソースにどのような貢献をしていますか？」という質問に何らかの回答をした回答者のうち、詳細な金銭的・労働的貢献に関する質問に回答した回答者の割合はどのくらいだったでしょうか？</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>オープンソースソフトウェアプロジェクトにどのような貢献をしているかについて情報を提供した325の回答組織のうち；</p>
+<ul>
+<li><strong>55%</strong>が「あなたの組織はOSSに総額でどれくらいの資金援助を行っていますか？」という質問に回答しました。</li>
+<li><strong>50%</strong>が「あなたの組織でOSSに従事している従業員のうち、OSSに従事している割合はどのくらいですか？」という質問に回答しました。</li>
+<li><strong>46%</strong>が「あなたの組織でOSSに従事している従業員は何人ですか？」という質問に回答しました。</li>
+<li><strong>32%</strong>が「あなたの組織は、さまざまな OSS 対象（プロジェクト、メンテナ、Foundation など）にどれだけの財政支援を行っていますか？」という質問に回答しました。</li>
+<li><strong>22%</strong>が「組織の予算のうち、OSS に割り当てられている割合はどのくらいですか？」という質問に回答しました。</li>
+<li><strong>20%</strong>が「あなたの組織の従業員が OSS に費やしている総労働時間はどのくらいですか？」という質問に回答しました。</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">労働力は重大な盲点である</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>その規模と過少申告の可能性が主な原因となり、<strong><em>OSSへの労働による貢献は、あなたの組織にとって重大な盲点となります</em></strong>。</p>
+</div>
+</div>
+<p>回答者は、労働面での貢献と比較すると、組織の直接的な金銭的貢献についてより詳しく知っているようです。金銭的貢献または労働価値について何らかの推定値を提示した192人の回答者のうち；</p>
+<ul>
+<li><strong>67%</strong>は両方の情報を提供しました</li>
+<li><strong>33%</strong>は金銭的情報のみを提供しました</li>
+<li><strong>1%</strong>は労働情報のみを提供しました</li>
+</ul>
+<p><a href="https://opensourcefundingsurvey2024.com">ページトップへ</a></p>
+</section>
+<section id="key-finding-challenges-of-decentralization" class="level2">
+<h2 class="anchored" data-anchor-id="key-finding-challenges-of-decentralization">運営が分散化されている場合、貢献度の測定はより困難になります。</h2>
+<ul>
+<li><strong>回答者は、正式な承認ルートがほとんどないことや、その他の貢献への障害を挙げています</strong>。これは、ある意味でありがたいことでもあり、困ったことでもあります。オープンソースソフトウェアの作業を奨励しながら、従業員が何に取り組んでいるか（報告目的）をある程度把握するにはどうすればよいのでしょうか。</li>
+</ul>
+<blockquote class="blockquote">
+<p>「私は大きな研究大学で働いています。プログラマーが様々な分野で働いているので、大学がオープンソースにどのように貢献しているのかわかりません。」</p>
+</blockquote>
+<ul>
+<li>回答した組織の<strong>64%</strong>は<strong><em>OSPOを持っていません</em></strong>（7%は持っているかどうかわからないと回答）。</li>
+<li><strong>従業員のメールアドレスとして固定アドレスの使用を義務付けている組織は全体の3分の1未満であり</strong>、3分の1強が強く推奨しています</li>
+<li>非財務的、非コード的な重要な貢献は、依然として測定されていない可能性があります。</li>
+<li>フルタイムまたはパートタイムの従業員と比較すると、回答者は（当然のことながら）<em>契約社員がオープンソースに費やしている労働時間について、比較的よく知らないようです</em>。一方で、この調査では、契約社員への支払いが、組織による金銭的貢献の最大の割合を占めていることも明らかになっています（<a href="#fig-financial-split" class="quarto-xref">図7</a>参照）。</li>
+</ul>
+<blockquote class="blockquote">
+<p>「私たちは資金提供者であり、直接的な貢献はしていません。」</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>「私たちの開発者はフリーランスのギグワーカーです。」</p>
+</blockquote>
+<p><a href="https://opensourcefundingsurvey2024.com">ページトップへ</a></p>
+</section>
+</section>
+<section id="recommendations" class="level1 page-columns page-full">
+<h1>推奨事項</h1>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">オープンソース資金調達ツールキット</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>調査結果から得られた洞察を活用し、オープンソースへの投資をよりよく監視したいと考える組織向けのさまざまなリソースを開発しました：<a href="https://github.com/sboysel/open-source-funding-toolkit">https://github.com/sboysel/open-source-funding-toolkit</a></p>
+</div>
+</div>
+<p><strong><em>あなたの組織の OSS への取り組みを公開識別子で署名し</em></strong>、マネージャー、研究者、その他の閲覧者がこの情報をより簡単に収集できるようにする。</p>
+<ul>
+<li>従業員が組織のメールアドレスを使用してコミットできるようにするポリシーを採用します</li>
+<li>OSS への取り組みを公開のバナーの下に統合します<a href="#fn17" class="footnote-ref" id="fnref17" role="doc-noteref"><sup>17</sup></a></li>
+<li>OSS の利用と貢献への期待を、組織の役割に関する公開の記述の中で明示的に示します<a href="#fn18" class="footnote-ref" id="fnref18" role="doc-noteref"><sup>18</sup></a></li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn17"><p><sup>17</sup> 例えば、オープンソースプロジェクトをGitHub Organizationの下に配置します。</p></div><div id="fn18"><p><sup>18</sup> 求人情報など。</p></div></div><p><strong><em>従業員が、あなたの組織の名称でなされた貢献を自己申告できるようにします</em></strong></p>
+<ul>
+<li>従業員が、自分の貢献を時間で記録し、公表することを奨励します。<a href="#fn19" class="footnote-ref" id="fnref19" role="doc-noteref"><sup>19</sup></a></li>
+<li>オープンソースへの貢献に対するインセンティブ、表彰、または賞は、自己申告を促進するための低コストな方法です。</li>
+<li>採用戦略の一環として、オープンソースに貢献する可能性を提供し、周知することで、人材を惹きつけます。</li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn19"><p><sup>19</sup> 例えば、<a href="https://www.iq.harvard.edu/">Harvard’s Institute for Quantitative Social Science (IQSS) </a>は、関連組織が取り組んでいるオープンソースプロジェクトを<a href="https://github.com/IQSS/open-source-at-harvard">GitHubの公開リポジトリ</a>に追加することを奨励しています。</p></div></div><p>重要なメトリックを収集するべく組織内で定期的に簡便な調査を実施することで<strong><em>OSSへの貢献を監視パイプラインの一部にします</em></strong>。</p>
+<ul>
+<li>シンプルかつ迅速に。幅よりも広さを重視しましょう。</li>
+<li>従業員が貢献したOSSの労働量に特に注意を払いましょう。</li>
+</ul>
+<p><strong><em>OSSへの公的資金投入指標を共有することを検討しましょう</em></strong><a href="#fn20" class="footnote-ref" id="fnref20" role="doc-noteref"><sup>20</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn20"><p><sup>20</sup> 組織間のコード貢献の存在を示す公開インデックスの例として、<a href="https://opensourceindex.io/">、オープンソース貢献者インデックス（OSCI）</a>があります。</p></div></div><ul>
+<li><em>公開インデックス</em>は、あなたの組織のオープンソース投資の<em>「何を」「どこで」「どれだけ」</em>を追跡するシンプルなリストです。<a href="#fn21" class="footnote-ref" id="fnref21" role="doc-noteref"><sup>21</sup></a></li>
+<li>貢献レポートの標準化を強化するのに役立ちます。</li>
+<li>透明性とデータへの公開アクセスを促進します。</li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn21"><p><sup>21</sup> リソースについては、私たちの<a href="https://github.com/sboysel/open-source-funding-toolkit">資金調達ツールキット</a>を必ずご確認ください。</p></div></div><p><a href="https://opensourcefundingsurvey2024.com">ページトップへ</a></p>
+</section>
+<section id="detailed-findings" class="level1 page-columns page-full">
+<h1>詳細な調査結果</h1>
+<p><a href="#key-findings">主要な調査結果</a>で取り上げた組織によるオープンソース投資の規模を推定するだけでなく、本調査では、コードおよびコード以外の貢献、動機やインセンティブ、投資の優先順位付け、組織のプロセスなど、幅広い質問を回答者に尋ね、さらに掘り下げた調査を行いました。このセクションでは、調査から得られたより詳細な洞察について説明します。まず、<a href="#survey-characteristics">調査の構成と実施</a>について説明します。次に、調査で得られた<a href="#respondent-characteristics">回答組織の特徴</a>について説明します。最後に、<a href="#code-contribution">コード貢献</a>、<a href="#non-code-contribution">コード以外の貢献</a>、<a href="#motivations-and-incentives">動機とインセンティブ</a>、および<a href="#investment-prioritization-and-decision-making">投資の優先順位付けと意思決定</a>という、各調査モジュールの調査結果を要約します。</p>
+<section id="survey-characteristics" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="survey-characteristics">アンケートの特徴</h2>
+<p><a href="#tbl-survey-characteristics" class="quarto-xref">表2</a>は、OSS資金調達調査の概要をまとめたものです。</p>
+<div id="tbl-survey-characteristics" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-tbl figure page-columns page-full">
+<div aria-describedby="tbl-survey-characteristics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 41%">
+<col style="width: 58%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">項目</th>
+<th style="text-align: left;">値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">回答総回答数</td>
+<td style="text-align: left;">501</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">調査開始日</td>
+<td style="text-align: left;">2024年6月27日</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">調査終了日</td>
+<td style="text-align: left;">2024年10月17日</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">調査形式</td>
+<td style="text-align: left;">オンライン (Qualtrics)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">質問数</td>
+<td style="text-align: left;">47</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">アウトリーチ</td>
+<td style="text-align: left;">直接の連絡（メール）、ターゲットグループ（GitHubブログ、LFニュースレター）、幅広いチャンネル（LinkedIn、Twitter/X、Mastodon）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-survey-characteristics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">表2：アンケートの特徴の概要</figcaption>
+</figure>
+</div>
+<p>調査の執筆者は協力して5つのモジュールにわたる47の質問を作成し<a href="#fn22" class="footnote-ref" id="fnref22" role="doc-noteref"><sup>22</sup></a>、所要時間は19分と想定しました<a href="#fn23" class="footnote-ref" id="fnref23" role="doc-noteref"><sup>23</sup></a>。 オープンソースに最も貢献している可能性が高い組織を対象に調査を実施する一方で、調査へのリンクは一般にも公開しました<a href="#fn24" class="footnote-ref" id="fnref24" role="doc-noteref"><sup>24</sup></a>。配布チャネルには、直接の電子メール連絡、ターゲットを絞ったニュースレター、ソーシャルメディア投稿などが含まれました。調査は2024年6月27日より<a href="https://www.qualtrics.com/">Qualtrics</a>を通じてオンラインで実施されました。2025年9月25日までに、501件の回答を収集しました<a href="#fn25" class="footnote-ref" id="fnref25" role="doc-noteref"><sup>25</sup></a>。回答の58%はLinux Foundationからの働きかけによるもので、24%はGitHubチャンネル、18%はその他のチャンネルからのものでした<a href="#fn26" class="footnote-ref" id="fnref26" role="doc-noteref"><sup>26</sup></a>。</p>
+<div class="no-row-height column-margin column-container"><div id="fn22"><p><sup>22</sup> 調査モジュールには、「コード貢献」、「コード以外の貢献」、「動機とインセンティブ」、「投資の優先順位付けと意思決定」、および「回答者の記述」が含まれます。</p></div><div id="fn23"><p><sup>23</sup> 初期のフィードバックでは、初回調査は長すぎるとの意見が寄せられました。今後の OSS 資金調達調査では、回答率を向上させるために、調査を簡素化する必要があります。</p></div><div id="fn24"><p><sup>24</sup> 回答者は18歳以上であることを確認するだけで済みました。</p></div><div id="fn25"><p><sup>25</sup> 回答者に質問をスキップしたり、回答を空欄にしたりすることを許可したため、回答率は質問によって異なります。</p></div><div id="fn26"><p><sup>26</sup> その他のチャネルには、LinkedIn、X、Mastodonでのソーシャル投稿、および直接の電子メールによる連絡が含まれます。ソース別の回答率の差は、おそらくアプローチするタイミングの違いから生じています。</p></div></div><p><a href="https://opensourcefundingsurvey2024.com">ページトップへ</a></p>
+</section>
+<section id="respondent-characteristics" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="respondent-characteristics">回答者の特性</h2>
+<p>調査に回答したのはどんな人でしょうか?回答者に一連の属性に関する質問をして、どのような組織がアンケートの対象となっているかを把握しました。</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">調査に回答したのはどんな人でしょうか?</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>大まかに言えば、我々のアンケートでは以下の3種類の組織を捉えています：</p>
+<ul>
+<li>OSSへの資金提供を目的として設立された非営利団体/政府機関</li>
+<li>OSSの開発に重点を置く小規模企業やスタートアップ</li>
+<li>幅広い戦略の一環として開発を行う大規模な企業</li>
+</ul>
+</div>
+</div>
+<p><a href="#fig-org-size" class="quarto-xref">図9</a>は、この調査があらゆる規模の企業から意見を収集していることを示しています<a href="#fn27" class="footnote-ref" id="fnref27" role="doc-noteref"><sup>27</sup></a>。<a href="#fig-org-industry" class="quarto-xref">図10</a>と<a href="#fig-org-nature" class="quarto-xref">図11</a>では、回答者を業種と業務分野別に分類しています。回答者の大半（87%）は、ITおよびコンピューティング関連の営利企業です。非営利団体と学術機関は、回答者の13%を占めています。<a href="#fig-org-oss-experience" class="quarto-xref">図12</a>は、回答者のオープンソースの利用状況を示しており、ほとんどの組織がオープンソースを利用している一方で、ごく一部の組織が主要なオープンソースプロジェクトのプロジェクト管理やガバナンスに影響を与えているという考え方を裏付けるものです。<a href="#fig-org-region" class="quarto-xref">図13</a>は、地域のカバレッジが北米とヨーロッパに偏っていることを示しています<a href="#fn28" class="footnote-ref" id="fnref28" role="doc-noteref"><sup>28</sup></a>。最後に、<a href="#fig-org-has-ospo" class="quarto-xref">図14</a>は、配布対象の選択と一致して、回答者の31%がOSPOを所有していることを明らかにしています。</p>
+<div class="no-row-height column-margin column-container"><div id="fn27"><p><sup>27</sup> 小規模な企業の代表は、規模を推定する上で心強く、OSSの主要な貢献者を過剰にサンプリングしているのではないかという懸念をいくらか軽減してくれます。</p></div><div id="fn28"><p><sup>28</sup> OSSの資金調達に関する今後の調査では、十分にカバーされていない地域を調査対象に含めることが望ましいでしょう。</p></div></div><div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">注</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>OSSに参加している組織の同様の研究<span class="citation" data-cites="lfosporeport2023">(<a href="#ref-lfosporeport2023" role="doc-biblioref">Hendrick and Santamaria 2023</a>)</span>と比較すると、この調査のサンプルは、</p>
+<ul>
+<li>小規模企業からの回答が多くなっています</li>
+<li>OSPOからの回答がやや少なくなっています。</li>
+<li>米国、カナダ、EU以外の地域からの回答が大幅に少なくなっています。</li>
+</ul>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="ref-lfosporeport2023" class="csl-entry" role="listitem">Hendrick, Stephen, and Ana Jimenez Santamaria. 2023. <span>“The 2023 State of OSPOs and OSS Initiatives.”</span> <a href="https://www.linuxfoundation.org/research/ospo-2023">https://www.linuxfoundation.org/research/ospo-2023</a>.</div></div><div class="tabset-margin-container"></div><div class="panel-tabset page-columns page-full">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">規模</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">業界</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">ニッチ</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">OSSの経験</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">地域</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false">OSPOの有無</a></li></ul>
+<div class="tab-content page-columns page-full">
+<div id="tabset-1-1" class="tab-pane active page-columns page-full" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div id="cell-fig-org-size" class="cell page-columns page-full" data-execution_count="11">
+<div class="cell-output cell-output-display page-columns page-full">
+<div id="fig-org-size" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-org-size-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><a href="index_files/figure-html/fig-org-size-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="図9：調査回答者の組織規模"><img src="index_files/figure-html/fig-org-size-output-1.png" width="788" height="290" class="figure-img"></a></div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-org-size-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">図9：調査回答者の組織規模</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane page-columns page-full" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div id="cell-fig-org-industry" class="cell page-columns page-full" data-execution_count="12">
+<div class="cell-output cell-output-display page-columns page-full">
+<div id="fig-org-industry" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-org-industry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><a href="index_files/figure-html/fig-org-industry-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="図10：調査回答者の組織の業種"><img src="index_files/figure-html/fig-org-industry-output-1.png" width="796" height="690" class="figure-img"></a></div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-org-industry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">図10：調査回答者の組織の業種</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane page-columns page-full" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div id="cell-fig-org-nature" class="cell page-columns page-full" data-execution_count="13">
+<div class="cell-output cell-output-display page-columns page-full">
+<div id="fig-org-nature" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-org-nature-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><a href="index_files/figure-html/fig-org-nature-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="図11：調査回答者の組織種別"><img src="index_files/figure-html/fig-org-nature-output-1.png" width="709" height="465" class="figure-img"></a></div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-org-nature-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">図11：回答者の組織種別</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane page-columns page-full" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div id="cell-fig-org-oss-experience" class="cell page-columns page-full" data-execution_count="14">
+<div class="cell-output cell-output-display page-columns page-full">
+<div id="fig-org-oss-experience" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-org-oss-experience-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><a href="index_files/figure-html/fig-org-oss-experience-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="図12：調査回答者のOSSの経験"><img src="index_files/figure-html/fig-org-oss-experience-output-1.png" width="789" height="490" class="figure-img"></a></div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-org-oss-experience-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">図12：調査回答者のOSSの経験</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-5" class="tab-pane page-columns page-full" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<div id="cell-fig-org-region" class="cell page-columns page-full" data-execution_count="15">
+<div class="cell-output cell-output-display page-columns page-full">
+<div id="fig-org-region" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-org-region-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><a href="index_files/figure-html/fig-org-region-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="図13：調査回答者の地域"><img src="index_files/figure-html/fig-org-region-output-1.png" width="789" height="290" class="figure-img"></a></div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-org-region-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">図13：調査回答者の地域</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-6" class="tab-pane page-columns page-full" role="tabpanel" aria-labelledby="tabset-1-6-tab">
+<div id="cell-fig-org-has-ospo" class="cell page-columns page-full" data-execution_count="16">
+<div class="cell-output cell-output-display page-columns page-full">
+<div id="fig-org-has-ospo" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-org-has-ospo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><a href="index_files/figure-html/fig-org-has-ospo-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="図14：調査回答者のOSPOの普及率"><img src="index_files/figure-html/fig-org-has-ospo-output-1.png" width="789" height="290" class="figure-img"></a></div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-org-has-ospo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">図14：調査回答者のOSPOの普及率</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><a href="https://opensourcefundingsurvey2024.com">ページトップへ</a></p>
+</section>
+<section id="code-contribution" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="code-contribution">コードへの貢献</h2>
+<p><strong><em>あなたの組織はどこにオープンソースコードを貢献していますか？</em></strong></p>
+<ul>
+<li><strong>組織</strong>は、直接管理しているリポジトリに貢献することが最も多い（<strong>38%</strong>）ですが、それに次いで多いのは上流依存関係にあるプロジェクト（<strong>34%</strong>）が僅差で続きます。</li>
+<li>ほとんどの企業（<strong>39%</strong>）は毎日貢献しており、<strong>60%</strong>の組織は少なくとも週に一度はコードを貢献しています。</li>
+<li>企業規模とコード貢献の頻度との間には、強い相関関係はありません。</li>
+<li>調査回答者の一部は、リソースの制約や他の目的への取り組みを理由に、貢献の頻度が少ないと報告しています。</li>
+</ul>
+<blockquote class="blockquote">
+<p>「私たちが貢献することは滅多にありません。私たちは非営利団体です。もし資金が潤沢であれば、コミュニティに還元するために多くのリソースを割り当てることができるでしょうが、私たちはすでに、十分に支援されていないコミュニティに貢献しています。」</p>
+</blockquote>
+<p><strong><em>あなたの組織ではどのようなオープンソースコードへの貢献を行っていますか？</em></strong></p>
+<ul>
+<li>組織は、ガバナンスの提供(<strong>7%</strong>)、サイバーセキュリティ監査(<strong>6%</strong>)、法的アドバイス(<strong>3%</strong>)の提供よりも、バグレポート(<strong>19%</strong>)、機能(<strong>19%</strong>)、一般的なメンテナンス(<strong>18%</strong>)、ドキュメント(<strong>16%</strong>)の形で貢献する可能性が高くなっています。</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">サイバーセキュリティ監査は、組織にとって重点項目ではありません</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>セキュリティは、バグ報告や一般的なメンテナンスを通じてある程度の注意が払われているかもしれませんが、包括的な監査は組織にとって重点項目ではないことは明らかです。</p>
+</div>
+</div>
+<p><strong><em>あなたの組織では、誰がオープンソースコードに貢献していますか？</em></strong></p>
+<ul>
+<li>開発者またはソフトウェアエンジニア (<strong>40%</strong>）に次いで、コミュニティ/開発者支援者（<strong>17%</strong>）とIT/システム管理者/DevOps担当（<strong>11%</strong>）が貢献する可能性が2番目と3番目に高いです。</li>
+</ul>
+<p><strong><em>あなたの組織では、従業員がオープンソースソフトウェアプロジェクトに貢献するインセンティブをどのように提供していますか？</em></strong></p>
+<ul>
+<li>従業員に貢献を促す方法については、組織によって<em>さまざま</em>です。</li>
+</ul>
+<blockquote class="blockquote">
+<p>「すべての従業員は、契約書にオープンソースへの貢献を明確に許可する条項を設けています。一部の従業員は、オープンソースのみを扱っています。」</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>「（私の組織では）最も貢献度の高い社員に毎年会社賞を授与しています」</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>「...私たちは、開発者がキャリアを伸ばす方法として、OSSに貢献することを奨励しています。」</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>「私たちは本当にそれを求めていません。私たちはオープンソースポリシーを改善し、より多くの人々に興味を持ってもらうよう努めていますが、それはエンジニア自身がそれを探し求めることに依存しています（これはエンジニアの一部にしか最適化されません）。」</p>
+</blockquote>
+<ul>
+<li>OSS 関連の業務は、従業員の職務全体 (<strong>31%</strong>) よりも職務の一部 (<strong>52%</strong>) である可能性が高くなります。</li>
+<li>組織は過剰な貢献に対する「規制」を挙げているわけではないようです。ほとんどの従業員は、明確な承認なしに（<strong>38%</strong>）またはコア業務に支障をきたさない限り（<strong>33%</strong>）貢献することができます。</li>
+<li>大規模な同業者と比較すると、中小企業では、OSS 作業がフルタイムの仕事である従業員がいる可能性がはるかに高くなります。</li>
+<li>ほとんどの組織（<strong>77%</strong>）では、通常の給与以外にオープンソースへの貢献に対して追加の支払いを行っていません。</li>
+</ul>
+<p><strong><em>あなたの組織では、許可されていないコード貢献活動はありますか？</em></strong></p>
+<ul>
+<li>ほとんどの組織 (<strong>43%</strong>) は、自社で明確に禁止されているコード貢献の種類を報告していません。</li>
+<li>報告している場合、特定のライセンス要件<a href="#fn29" class="footnote-ref" id="fnref29" role="doc-noteref"><sup>29</sup></a>のあるプロジェクト（<strong>25%</strong>）や競合他社が管理するプロジェクト（<strong>10%</strong>）への貢献は禁止される可能性が高いようです。</li>
+<li>その他のコントリビューションの障害としては、複雑なCLA、プロジェクトの管理業務、競合他社が管理するプロジェクトなどがあります。</li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn29"><p><sup>29</sup> 例えば、<a href="https://yahoo.github.io/oss-guide/docs/resources/what-is-cla.html">コントリビューターライセンス契約（CLA）</a>など。</p></div></div><blockquote class="blockquote">
+<p>「企業の知的財産を公開することになる貢献」</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>「官僚主義が強すぎるプロジェクトへの貢献」</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>「複雑すぎるCLAのあるプロジェクトへの貢献」</p>
+</blockquote>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">貢献に対する障害は、産業や規制の要因から生じる場合もあります</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>金融サービスなどの規制産業の一部の組織では、オープンソースへの貢献を完全に禁止しています！</p>
+</div>
+</div>
+<p><strong><em>あなたの組織では、オープンソースプロジェクトに従事する従業員に対してどのような承認プロセスを設けていますか？</em></strong></p>
+<ul>
+<li>ほとんどの回答者は、OSSプロジェクトに取り組むための厳格な承認プロセスはないと述べています。貢献に明確な承認を必要とする組織は<strong>19%</strong>のみであり、貢献を事前に承認されたプロジェクト群に制限している組織はわずか<strong>11%</strong>です。</li>
+</ul>
+<blockquote class="blockquote">
+<p>「明確なポリシーはありません。『疑問があれば、私たちに相談してください』という感じです」</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>「彼らが望んでいるのは機能だけなので、これは後付けです。知的財産管理のような影響は、適切に考慮されていません。」</p>
+</blockquote>
+<ul>
+<li>従業員が貢献できる OSS プロジェクトについて、小規模な企業では制約が少ない傾向にあります。</li>
+<li>厳しいライセンス要件のある OSS への貢献については、大規模な企業ほど懸念が大きいようです。</li>
+<li>貢献の制限は、貢献のレベル自体によっても異なる可能性があります。。</li>
+</ul>
+<blockquote class="blockquote">
+<p>「従業員は、事前の承認なしに軽微なコード変更（バグ修正、改善）を行うことができます。より大規模な貢献やプロジェクト全体については承認が必要です。」</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>「幅広いライセンス/プロジェクトのリストと既知のCLAに記載されている限り、どのプロジェクトにも簡単な貢献を行うことができます。」</p>
+</blockquote>
+<ul>
+<li>いくつかの回答者がレビュープロセスの改善に積極的に取り組んでいることは喜ばしいことです。</li>
+</ul>
+<blockquote class="blockquote">
+<p>「現在、明確な承認プロセスはないが、そのようなプロセスを確立する方向にあります。」</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">優れた組織方針は、貢献のしやすさと管理の維持を両立させます</div>
+</div>
+<div class="callout-body-container callout-body">
+<dl>
+<dt>推奨事項</dt>
+<dd><ul>
+<li>コントリビューションのポリシーを明確にし、従業員に推奨することで貢献に関する摩擦を軽減します。</li>
+<li>同時に、従業員のオープンソースへの投資の規模を測定できるように、監視または自己報告フレームワークを導入します。</li>
+<li><strong>複数のメリット</strong>：貢献を奨励し、ビジネスリスクを軽減し、貢献に関する見識を深めることができます！</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>「従業員は、勤務時間中にパブリックなプロジェクトに貢献する前に、トレーニングを完了し、自分のGitHub IDを会社の組織にマッピングしなければなりません。」</p>
+</blockquote>
+<p><strong><em>あなたの組織では、従業員がオープンソースプロジェクトに貢献することを許可する前に、特定のビジネスリスクを評価していますか？</em></strong></p>
+<ul>
+<li>ビジネスリスク（重要度の低い順）：セキュリティ（<strong>20%</strong>）、競争優位性（<strong>16%</strong>）、特許リスク（<strong>15%</strong>）、技術的負債（<strong>13%</strong>）、外部コードへの依存（<strong>13%</strong>）</li>
+<li>しかし、<strong>16%</strong>の組織は、従業員によるオープンソースへの貢献を許可するかどうかを決定する際に、ビジネスリスクは考慮しないと回答しています。</li>
+<li>OSSに割り当てられる作業時間の分布は3つのモードに分かれます。OSSに従事する従業員は、通常、作業時間の0～15%、50%、100%のいずれかで従事しています。</li>
+<li>残念ながら、一部の組織では、過剰なオープンソースへの取り組みを無駄遣いとみなしたり、その他の点で方向性がずれているとみなす可能性があります。<a href="#fn30" class="footnote-ref" id="fnref30" role="doc-noteref"><sup>30</sup></a></li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn30"><p><sup>30</sup> このような考え方は、特に個々の組織の視点から、オープンソースへの投資のROIに対する理解を深める動機付けとなります。</p></div></div><blockquote class="blockquote">
+<p>「大量の無駄が発生するリスク。対応、プルレビューなど」</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>「そうでなければ放棄される重要なプロジェクトのサポート」</p>
+</blockquote>
+<p><a href="https://opensourcefundingsurvey2024.com">ページトップへ</a></p>
+</section>
+<section id="non-code-contribution" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="non-code-contribution">コード以外の貢献</h2>
+<p><strong><em>あなたの組織では、コードの貢献以外にどのような形でオープンソースを支援していますか？</em></strong></p>
+<ul>
+<li>回答者がコード以外の貢献を行っている場合、そのほとんどが寄付（<strong>21%</strong>）<a href="#fn31" class="footnote-ref" id="fnref31" role="doc-noteref"><sup>31</sup></a>、Foundationへの参加（<strong>17%</strong>）、イベントのスポンサーシップ（<strong>14%</strong>）を通じて行われる可能性が最も高いです。</li>
+<li>回答者が挙げたコード以外の支援の形として、オープンソースの研究へ支援することも挙げられます。</li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn31"><p><sup>31</sup> 寄付のカテゴリーをさらに細分化すると、11%の組織がFoundation、非営利団体、一般ファンドに寄付しており、10%の組織がメンテナやソフトウェアプロジェクトに直接寄付しています。</p></div></div><blockquote class="blockquote">
+<p>「オープンソースコードに貢献する研究プロジェクトへの資金援助」</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>「ワーキンググループのホワイトペーパー/ユースケースなどのスポンサー」</p>
+</blockquote>
+<ul>
+<li>講演者の提供は、資金援助（<strong>22%</strong>）やマーケティング（<strong>19%</strong>）、ロジスティクス支援（<strong>15%</strong>）、コンテンツキュレーション（<strong>14%</strong>）と比較して、最も一般的なイベントスポンサーシップ（<strong>30%</strong>）の形態です。</li>
+<li>組組織がファウンデーションを支援する場合、最も多く挙げられる理由は、そのファウンデーションが自社にとって有益なオープンソースプロジェクトを支援しているから（<strong>36%</strong>）というものでした。</li>
+<li>企業規模とコード以外の貢献形態との間には、強い関係はないようです。。</li>
+<li>コード以外の貢献は、コードの貢献と比較すると、はるかに散発的で頻度が低いです。</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">金銭的でないまたはコード以外の重要な貢献は、依然として測定されていない可能性があります。</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>イベントに講演者を派遣することの価値とは何でしょうか？ ロジスティクス支援やコンテンツキュレーションでしょうか？ 回答者がコード以外の貢献レベルに関する質問に回答する際に、これらのサービスを考慮に入れなければ、この潜在的に価値のある貢献形態が調査で過小評価される可能性があります。</p>
+</div>
+</div>
+<p><strong><em>コード以外の貢献形態で、明確に禁止しているものはありますか？</em></strong></p>
+<ul>
+<li>通常、組織はコード以外の貢献活動を明確に禁止することはありません。回答者の<strong>48%</strong>は、何も禁止されていないと回答しています。</li>
+</ul>
+<p><a href="https://opensourcefundingsurvey2024.com">ページトップへ</a></p>
+</section>
+<section id="motivations-and-incentives" class="level2">
+<h2 class="anchored" data-anchor-id="motivations-and-incentives">モチベーションとインセンティブ</h2>
+<p><strong><em>あなたの組織がオープンソースを支援する主な動機は何ですか？</em></strong></p>
+<ul>
+<li>オープンソースへの貢献の主な理由として挙げられたもの：プロジェクトの持続可能性への懸念（<strong>10%</strong>)、還元 (<strong>10%</strong>)、イノベーション (<strong>9%</strong>)</li>
+<li>これらの動機を<em>企業規模別</em>に分類すると、戦略的動機がより明確になります。<ul>
+<li>小規模組織は、<strong><em>プロジェクトの持続可能性への関心</em></strong>と<strong><em>還元する願望</em></strong>を示しています。</li>
+<li>大規模な組織は、<strong><em>リスク軽減、標準の推進、相互運用性</em></strong>重視しているようです。</li>
+</ul></li>
+</ul>
+<blockquote class="blockquote">
+<p>「オープンソースへの貢献は、コンサルティング契約の成果をアピールするのに役立ちます。」</p>
+</blockquote>
+<p><strong><em>あなたの組織のオープンソースへの支援意欲を妨げる要因にはどのようなものがありますか？</em></strong></p>
+<ul>
+<li>人的資源（<strong>26%</strong>）または資金（<strong>20%</strong>）の不足は、組織が貢献する上での最も一般的な障害として挙げられています。</li>
+<li>一方で、組織は、リソースがあればどのように、またなぜ貢献するのかを明確に理解しているようです。回答者の<strong>38%</strong>は、<em>どのように</em>貢献すればよいか不明確であることが、何らかの障害となっているわけではないと述べています。</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">組織は貢献する方法を知っているが、リソースが限られています。</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>言い換えれば、組織は貢献すべき理由や方法については明確に理解しているものの、より積極的に参加するためのリソースが不足している傾向にあります。</p>
+</div>
+</div>
+<ul>
+<li>半数以上の組織が、OSS に貢献した従業員に報酬を与えたり、表彰したりしています (少なくともある程度)</li>
+<li>小規模な企業では、従業員の OSS 貢献に対して報酬を与えたり、表彰したりする傾向が高いようです。</li>
+<li><strong>83%</strong>の組織が、OSSへの貢献は採用候補者にとって少なくともある程度重要であると回答しています。<ul>
+<li>OSSに対する組織のサポートは、大企業よりも小規模な企業の採用候補者にとってより重要であるようです。</li>
+</ul></li>
+</ul>
+<p><strong><em>業務に不可欠なオープンソースソフトウェアに対して、あなたの組織はどの程度コードの貢献を行なっていますか？</em></strong></p>
+<ul>
+<li>小規模企業は、業務に OSS のサポートが極めて重要であると感じているが、大規模企業ではやや重要であると考えています。</li>
+</ul>
+<p><strong><em>オープンソースを支援するにあたり、免税措置は考慮要素となりますか？</em></strong></p>
+<ul>
+<li>免税措置は貢献の動機としてはそれほど強くないようです。回答者の<strong>48%</strong>は、貢献の決定において免税措置は「まったく役割を果たさない」と述べています。</li>
+</ul>
+<p><a href="https://opensourcefundingsurvey2024.com">ページトップへ</a></p>
+</section>
+<section id="investment-prioritization-and-decision-making" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="investment-prioritization-and-decision-making">投資の優先順位付けと意思決定</h2>
+<ul>
+<li>回答者は、プロジェクト開発の<strong><em>あらゆる側面</em></strong>を重視する<strong>持続可能なオープンソースの資金源</strong>の必要性を強調しています。</li>
+</ul>
+<blockquote class="blockquote">
+<p>「私たちは長年にわたり、いくつかの人気で便利なオープンソースツールを作成してきました。これらのプロジェクトの基本メンテナンスのための資金調達は常に苦労の連続です。資金源は新しい機能にはお金を払いたがるのですが、問題の解決や基本メンテナンスにはお金を払いたがりません。Linux Foundationが、このようなプロジェクト向けの資金調達ルートを持っていたら良いと思います。」</p>
+</blockquote>
+<ul>
+<li>支援に関して言えば、組織は OSS 請負業者に対して最も直接的な財政支援を行う傾向にあります。<a href="#fn32" class="footnote-ref" id="fnref32" role="doc-noteref"><sup>32</sup></a></li>
+<li>オープンソースに割り当てられている組織の予算の割合の分布は二極化しており、組織は通常、10%未満または90%以上をオープンソースのサポートに費やしています。<a href="#fn33" class="footnote-ref" id="fnref33" role="doc-noteref"><sup>33</sup></a></li>
+<li><strong>57%</strong>の企業が、求人広告に OSS 関連の期待を少なくともいくらか記載しています。</li>
+<li>一般的に、特定の労働力または財政的貢献に関する質問の回答率は、他の質問と比較してかなり低くなっています。</li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn32"><p><sup>32</sup> 請負業者の次に、組織は（多い順に）報奨金プラットフォーム、財団、コミュニティ、プロジェクト、および個々の保守者を支援しています。</p></div><div id="fn33"><p><sup>33</sup> これは、営利企業と非営利企業の両方を代表する回答者と一致しています。</p></div></div><p><a href="https://opensourcefundingsurvey2024.com">ページトップへ</a></p>
+</section>
+<section id="general-remarks-from-survey-respondents" class="level2">
+<h2 class="anchored" data-anchor-id="general-remarks-from-survey-respondents">アンケート回答者の全体的な意見</h2>
+<blockquote class="blockquote">
+<p>「特に貢献したいと考えているスタートアップ企業にとっては、人気の高い貢献に対して財政的な支援を行うスポンサー付きプログラムに関するより多くの情報が入手可能になることは素晴らしいことです。企業スポンサーを募り、その企業がオープンソースプロジェクトに多額の寄付を行うプロジェクトは数多くありますが、その一方で、スポンサー企業と関係のない貢献者にはほとんど何も支払われないプロジェクトも数多くあります。ですから、より公平な取り決めがあれば、有益な貢献がさらに頻繁に行われるようになるでしょう（特に、私は自分の会社の事業のために積極的に収益源を確保しながら、オープンソースに時間を寄付するというバランスを取らなければなりません）。</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>「あなたの調査には、オープンソースを利益の中心として測定しようとするバイアスがかかっています。オープンソースはツールに過ぎず、そのような会計処理は行われていません。私はドリームワークス・アニメーションで働いていました。そこで、当社のアニメーションソフトウェアはすべて社内でLinux用に作成されていました。もし『ヒックとドラゴン』がどれだけの利益を上げたか、Linuxの使用がどれだけ映画のヒットにつながったかを尋ねられた場合、答えられるでしょうか？ドリームワークスは競争優位性を確保するために、すべてのツールを社内で作成しています。私はそこで働いていた時にコードを書き、後にオープンソースとして公開することを会社から許可されました。しかし、特許トロールによる厄介な訴訟を恐れて、会社は私に自社の名義でオープンソースに貢献することを禁じたのです。</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>「最近では、多くのオープンソースコミュニティや組織がゲートキーパー的な役割を果たしており、参加が制限されているように感じます。」</p>
+</blockquote>
+<p><a href="https://opensourcefundingsurvey2024.com">ページトップへ</a></p>
+</section>
+</section>
+<section id="appendix" class="level1 page-columns page-full">
+<h1>付録</h1>
+<section id="appendix-measuring-labor" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="appendix-measuring-labor">労働（labor）の貢献価値の測定</h2>
+<p>私たちは、アンケート回答を基に、組織による OSS への労働力の貢献価値を2つの方法で測定することができます。</p>
+<ol type="1">
+<li>あなたの組織の従業員が1年間にOSSに貢献した労働時間を直接的に尋ねる質問を使用します</li>
+<li>(a) あなたの組織の従業員がOSSに貢献した人数、(b) これらの従業員がOSSプロジェクトに貢献するために費やした時間の割合を尋ねる質問を使用します。</li>
+</ol>
+<p>労働時間に関する直接的な回答は推定に頼る部分が小さいものの、2番目のアプローチの方が回答率ははるかに上回りました。そのため、私たちは次の式を使用して、単一の組織の労働貢献価値を推定しました。<span id="eq-firm-labor-value"><span class="math display">\[ \begin{aligned} \text{組織の OSS 労働の年間価値} &amp; = (\text{OSSの従業員数}) \\ &amp; \times (\text{OSSに費やす時間の割合}) \\ &amp; \times (\text{年間の就業時間}) \\ &amp; \times (\text{賃金}) \end{aligned} \tag{1}\]</span></span></p>
+<p>この方法を<a href="#tbl-labor-value" class="quarto-xref">表3</a>の「<strong>方法3b</strong>」とします。</p>
+<p><strong>前提条件：</strong></p>
+<ul>
+<li>48 週間の就業週と週 40 時間（年間 1920 時間）の就業を仮定する。</li>
+<li><span class="citation" data-cites="hoffmann2024value">Hoffmann、Nagle、Zhou (<a href="#ref-hoffmann2024value" role="doc-biblioref">2024</a>)</span>に従い、2023 年のソフトウェア開発者の世界的な時間当たり賃金を 45 ドルと想定します。</li>
+<li>組織内の何人の従業員が OSS に貢献しているかという質問に対しては、回答者はいくつかの区分された範囲（例えば、1～5 人、6～10 人など）から選択できます。 範囲が限定されている場合はその中央値を、限定されていない場合は最小値を、指標のポイント推定値として使用します。 例えば、回答カテゴリーが「1～5 人」の場合は 3 を使用します。カテゴリーが「5000人以上」の場合は、(控えめに) 5000 を選択します。</li>
+<li><strong>方法3b</strong>で説明したように、フルタイムおよびパートタイムの従業員のみをカウントし、従業員が貢献に費やす時間の割合は、組織が回答した値がグループの平均値であると想定します。</li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="ref-hoffmann2024value" class="csl-entry" role="listitem">Hoffmann, Manuel, Frank Nagle, and Yanuo Zhou. 2024. <span>“The Value of Open Source Software.”</span> <em>Harvard Business School Strategy Unit Working Paper</em>, no. 24-038.</div></div><p><a href="#tbl-labor-value" class="quarto-xref">表3</a>は、回答を寄せたすべての組織における年間OSS労働貢献価値の合計に関する代替推定値を示しています。この調査では、組織の労働貢献について複数の方法で質問したため、労働価値の合計を推定する代替方法をいくつか評価しています。</p>
+<ul>
+<li><strong>方法1</strong>：報告された労働時間のみを使用します。</li>
+<li><strong>方法2</strong>：報告された労働時間が存在する場合はそれを使用し、そうでない場合は OSS に貢献する従業員数と OSS に費やす時間の割合を使用します。</li>
+<li><strong>方法3</strong>：OSS に貢献する従業員数と OSS に費やす時間の割合のみを使用します。</li>
+</ul>
+<div id="tbl-labor-value" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-tbl figure page-columns page-full">
+<div aria-describedby="tbl-labor-value-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 44%">
+<col style="width: 27%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">方法</th>
+<th style="text-align: right;">回答数</th>
+<th style="text-align: right;">値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">方法1：報告された年間労働時間</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">$9,117,000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">方法2a: 正社員</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">$475,341,138</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">方法2b: 正社員およびパートタイムの従業員</td>
+<td style="text-align: right;">79</td>
+<td style="text-align: right;">$670,298,751</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">方法2c: 正社員、パートタイム従業員、契約社員</td>
+<td style="text-align: right;">79</td>
+<td style="text-align: right;">$677,818,143</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">方法3a：正社員</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">$967,495,968</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>方法3b: 正社員およびパートタイム従業員</strong></td>
+<td style="text-align: right;"><strong>112</strong></td>
+<td style="text-align: right;"><strong>$1,448,940,960</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">方法3c: 正社員、パートタイム従業員、契約社員</td>
+<td style="text-align: right;">112</td>
+<td style="text-align: right;">$1,723,433,760</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-labor-value-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">表3: OSSに対する年間労働貢献の価値（調査回答者より）</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">注</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>私たちは、<strong>方法3b</strong>による推定値を推奨します。その理由は、(1) データは一貫した質問セットへの回答から得られ、(2) 請負業者の労働時間を除外することで二重計上を避け、(3) 回答率は報告された労働時間よりも高かったからです。</p>
+</div>
+</div>
+</section>
+<section id="appendix-extrapolation" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="appendix-extrapolation">オープンソースソフトウェア（OSS）組織の人員数への推定</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container"><i class="callout-icon"></i></div>
+<div class="callout-title-container flex-fill">主要前提条件</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>貢献価値の人口分布は、組織に所属するコミットの公開リポジトリへの貢献の観察された分布に従います。</li>
+<li>オープンソースに労働力を提供している組織の人口の10%は、財源も提供しています。</li>
+</ol>
+</div>
+</div>
+<p>調査で得られた貢献価値を拡大して組織貢献額<em>全体</em>を推定するには、まず、この調査が大規模な貢献者により偏っている可能性があるという事実を考慮する必要があります。実際、調査による労働価値のおよそ半分は、1人の回答者によるものです。この複雑な問題に対処するために、較正ブートストラップ法<span class="citation" data-cites="rao1992some canty1999resampling">(<a href="#ref-rao1992some" role="doc-biblioref">Rao, Wu, and Yue 1992</a>; <a href="#ref-canty1999resampling" role="doc-biblioref">Canty 1999</a>)</span>を使用しています。単純に、調査で把握された総価値（17億ドル）を世界中の貢献組織の推定数（21,000）に一致させるように拡大すると、毎年2250億ドル以上が投資されていることになり、これは米国のソフトウェア開発者の総賃金とほぼ同額になります<span class="citation" data-cites="bls_software_developers2023">(<a href="#ref-bls_software_developers2023" role="doc-biblioref">労働統計局2024</a>)</span>。私たちの主な仮定は、貢献価値の人口分布は、組織に所属するコミットの公開リポジトリにおける分布を観察したものに従うというものです。</p>
+<div class="no-row-height column-margin column-container"><div id="ref-rao1992some" class="csl-entry" role="listitem">Rao, JNK, CFJ Wu, and Kim Yue. 1992. <span>“Some Recent Work on Resampling Methods for Complex Surveys.”</span> <em>Survey Methodology</em> 18 (2): 209–17.</div><div id="ref-canty1999resampling" class="csl-entry" role="listitem">Canty, Angelo J. 1999. <span>“Resampling-Based Variance Estimation for Labour Force Surveys.”</span> <em>Journal of the Royal Statistical Society Series D: The Statistician</em> 48 (3): 379–91.</div><div id="ref-bls_software_developers2023" class="csl-entry" role="listitem">Bureau of Labor Statistics, U. S. Department of Labor. 2024. <span>“Software Developers, Quality Assurance Analysts, and Testers.”</span> <a href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm">https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm</a>.</div><div id="fn34"><p><sup>34</sup> これは、公開時点で入手可能な組織に一致するデータとしては最新かつ完全な1年分です。</p></div><div id="fn35"><p><sup>35</sup> 例えば、<code>jdoe@microsoft.com</code> という電子メールがMicrosoftに関連付けられている著者がコミットを行っています。</p></div></div><p>まず、2022年4月から2023年4月までの期間における、GitHubのパブリックリポジトリに対する組織関連のコミットのサンプルから始めます。<a href="#fn34" class="footnote-ref" id="fnref34" role="doc-noteref"><sup>34</sup></a> 個々のコミットを組織に関連付けるには、そのコミットの著者のメールアドレスのドメインを組織のドメインとリンクさせます。 その従業員が雇用主を代表してオープンソースに貢献しているという前提に基づいています。<a href="#fn35" class="footnote-ref" id="fnref35" role="doc-noteref"><sup>35</sup></a> 次に、このサンプルを基に、毎年どれだけの組織がオープンソースに貢献しているかを概算します。これは、年間コミット数（X）を閾値とし、過去1年間に合計（X）のコミットを行った企業（N）の数を数えることで数値化されます。そして、この（N）を母集団の規模として使用します。</p>
+<p>次に、この (N) Rrms の分布とその年間コミット総額を、ブートストラップサンプリング手順でシミュレートする<em>グランドトゥルース</em>の母集団分布として使用します。この分布を区分し、各区分の相対度数を算出します。これらの相対度数は、労働貢献価値の実証サンプルから（N）の規模のブートストラップサンプルを抽出するための再サンプリングの重みとして使用されます。<a href="#fn36" class="footnote-ref" id="fnref36" role="doc-noteref"><sup>36</sup></a> このプロセスを繰り返し、財務的貢献価値の実証サンプルから (0.1 N) のブートストラップサンプルを抽出します。 ここで仮定しているのは、オープンソースに労働力を提供している従業員を持つ組織の10%が、金銭的貢献も行っているというものです。 最後に、これらの分布の合計に対するブートストラップ推定値を組み合わせ、すべての OSS 貢献組織の年間総貢献価値の推定値を算出します。</p>
+
+
+<div class="no-row-height column-margin column-container"><div id="fn36"><p><sup>36</sup> 具体的には、サイズ（N）のブートストラップサンプル（10,000）を抽出します。</p></div></div>
+</section>
+</section>
+
+
+</main> <!-- /main -->
+<script type="application/vnd.jupyter.widget-state+json">
+{"state":{"1880318ec45941ed996a61f14f189b11":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"auto"}},"33da059ba50f413b95f579597df1e5f7":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_35318430d8a940a59fc098c99178dd36","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_a99e01f3ed8349e1adefd44735d6bdb2","tabbable":null,"tooltip":null,"value":100}},"35318430d8a940a59fc098c99178dd36":{"model_module":"@jupyter-widgets/base","model_module_version":"2.0.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"2.0.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border_bottom":null,"border_left":null,"border_right":null,"border_top":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"padding":null,"right":null,"top":null,"visibility":null,"width":"auto"}},"54f8c9449a18410ea4102704c369abf4":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}},"6415cb096b0e460bad1062a3fad554b2":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"2.0.0","_view_name":"ProgressView","bar_style":"","description":"","description_allow_html":false,"layout":"IPY_MODEL_1880318ec45941ed996a61f14f189b11","max":100,"min":0,"orientation":"horizontal","style":"IPY_MODEL_54f8c9449a18410ea4102704c369abf4","tabbable":null,"tooltip":null,"value":100}},"a99e01f3ed8349e1adefd44735d6bdb2":{"model_module":"@jupyter-widgets/controls","model_module_version":"2.0.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"2.0.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"2.0.0","_view_name":"StyleView","bar_color":"black","description_width":""}}},"version_major":2,"version_minor":0}
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/opensourcefundingreport2024\.com");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"openEffect":"zoom","descPosition":"bottom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
